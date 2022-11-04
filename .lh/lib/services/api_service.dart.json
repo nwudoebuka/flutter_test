@@ -1,0 +1,26 @@
+{
+    "sourceFile": "lib/services/api_service.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1667521461736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667522972144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,6 @@\n     };\n   }\n \n   final baseUrl =\n-      'http://api.marketstack.com/v1/?access_key=350b8acbefde974e0a0c3f427d55e232&symbols=AAPL';\n+      'http://api.marketstack.com/v1/eod?access_key=350b8acbefde974e0a0c3f427d55e232&symbols=AAPL';\n }\n"
+                },
+                {
+                    "date": 1667525198683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,6 @@\n     };\n   }\n \n   final baseUrl =\n-      'http://api.marketstack.com/v1/eod?access_key=350b8acbefde974e0a0c3f427d55e232&symbols=AAPL';\n+      'http://api.marketstack.com/v1/tickers?access_key=350b8acbefde974e0a0c3f427d55e232';\n }\n"
+                }
+            ],
+            "date": 1667521461736,
+            "name": "Commit-0",
+            "content": "class ApiService {\n  String? token;\n\n  setHeaders() async {\n    const token = '350b8acbefde974e0a0c3f427d55e232';\n    return {\n      'Content-Type': 'application/json; charset=utf-8',\n      'Authorization': 'Bearer $token'\n    };\n  }\n\n  final baseUrl =\n      'http://api.marketstack.com/v1/?access_key=350b8acbefde974e0a0c3f427d55e232&symbols=AAPL';\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "lib/models/companies.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1667525607136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667526712479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,24 +16,24 @@\n     required this.data,\n   });\n \n   final Pagination pagination;\n-  final List<Datum> data;\n+  final List<Data> data;\n \n   factory RandomCompanies.fromJson(Map<String, dynamic> json) =>\n       RandomCompanies(\n         pagination: Pagination.fromJson(json[\"pagination\"]),\n-        data: List<Datum>.from(json[\"data\"].map((x) => Datum.fromJson(x))),\n+        data: List<Data>.from(json[\"data\"].map((x) => Data.fromJson(x))),\n       );\n \n   Map<String, dynamic> toJson() => {\n         \"pagination\": pagination.toJson(),\n         \"data\": List<dynamic>.from(data.map((x) => x.toJson())),\n       };\n }\n \n-class Datum {\n-  Datum({\n+class Data {\n+  Data({\n     required this.name,\n     required this.symbol,\n     required this.stockExchange,\n   });\n@@ -41,9 +41,9 @@\n   final String name;\n   final String symbol;\n   final StockExchange stockExchange;\n \n-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(\n+  factory Data.fromJson(Map<String, dynamic> json) => Data(\n         name: json[\"name\"],\n         symbol: json[\"symbol\"],\n         stockExchange: StockExchange.fromJson(json[\"stock_exchange\"]),\n       );\n"
+                },
+                {
+                    "date": 1667528032961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     required this.data,\n   });\n \n   final Pagination pagination;\n-  final List<Data> data;\n+  List<Data> data;\n \n   factory RandomCompanies.fromJson(Map<String, dynamic> json) =>\n       RandomCompanies(\n         pagination: Pagination.fromJson(json[\"pagination\"]),\n"
+                }
+            ],
+            "date": 1667525607136,
+            "name": "Commit-0",
+            "content": "// To parse this JSON data, do\n//\n//     final randomCompanies = randomCompaniesFromJson(jsonString);\n\nimport 'dart:convert';\n\nRandomCompanies randomCompaniesFromJson(String str) =>\n    RandomCompanies.fromJson(json.decode(str));\n\nString randomCompaniesToJson(RandomCompanies data) =>\n    json.encode(data.toJson());\n\nclass RandomCompanies {\n  RandomCompanies({\n    required this.pagination,\n    required this.data,\n  });\n\n  final Pagination pagination;\n  final List<Datum> data;\n\n  factory RandomCompanies.fromJson(Map<String, dynamic> json) =>\n      RandomCompanies(\n        pagination: Pagination.fromJson(json[\"pagination\"]),\n        data: List<Datum>.from(json[\"data\"].map((x) => Datum.fromJson(x))),\n      );\n\n  Map<String, dynamic> toJson() => {\n        \"pagination\": pagination.toJson(),\n        \"data\": List<dynamic>.from(data.map((x) => x.toJson())),\n      };\n}\n\nclass Datum {\n  Datum({\n    required this.name,\n    required this.symbol,\n    required this.stockExchange,\n  });\n\n  final String name;\n  final String symbol;\n  final StockExchange stockExchange;\n\n  factory Datum.fromJson(Map<String, dynamic> json) => Datum(\n        name: json[\"name\"],\n        symbol: json[\"symbol\"],\n        stockExchange: StockExchange.fromJson(json[\"stock_exchange\"]),\n      );\n\n  Map<String, dynamic> toJson() => {\n        \"name\": name,\n        \"symbol\": symbol,\n        \"stock_exchange\": stockExchange.toJson(),\n      };\n}\n\nclass StockExchange {\n  StockExchange({\n    required this.name,\n    required this.acronym,\n  });\n\n  final String name;\n  final String acronym;\n\n  factory StockExchange.fromJson(Map<String, dynamic> json) => StockExchange(\n        name: json[\"name\"],\n        acronym: json[\"acronym\"],\n      );\n\n  Map<String, dynamic> toJson() => {\n        \"name\": name,\n        \"acronym\": acronym,\n      };\n}\n\nclass Pagination {\n  Pagination({\n    required this.total,\n  });\n\n  final int total;\n\n  factory Pagination.fromJson(Map<String, dynamic> json) => Pagination(\n        total: json[\"total\"],\n      );\n\n  Map<String, dynamic> toJson() => {\n        \"total\": total,\n      };\n}\n"
+        }
+    ]
+}

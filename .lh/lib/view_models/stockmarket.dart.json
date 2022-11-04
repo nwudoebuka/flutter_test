@@ -1,0 +1,34 @@
+{
+    "sourceFile": "lib/view_models/stockmarket.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1667520915274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667521027509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n import 'package:http/http.dart' as http;\n-import 'package:http/http.dart';\n+import 'package:market_stock/exports.dart';\n \n-import '../services/api_service.dart';\n-\n class HomeServices {\n   final client = http.Client();\n   // final ApiService apiService = EnvConfig.baseUrl;\n   ApiService apiService = ApiService();\n"
+                },
+                {
+                    "date": 1667521241975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   final client = http.Client();\n   // final ApiService apiService = EnvConfig.baseUrl;\n   ApiService apiService = ApiService();\n \n-  Future<Response> getWorkRequestDetails() async {\n+  Future<Response> getStockMarketDetails() async {\n     final headers = await apiService.setHeaders();\n     final response = await client.get(\n         Uri.parse(\n             '${apiService.baseUrl}work-requests?associations[]=technicians&associations[]=unit'),\n"
+                },
+                {
+                    "date": 1667521524058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,13 @@\n import 'package:market_stock/exports.dart';\n \n class HomeServices {\n   final client = http.Client();\n-  // final ApiService apiService = EnvConfig.baseUrl;\n   ApiService apiService = ApiService();\n \n   Future<Response> getStockMarketDetails() async {\n     final headers = await apiService.setHeaders();\n-    final response = await client.get(\n-        Uri.parse(\n-            '${apiService.baseUrl}work-requests?associations[]=technicians&associations[]=unit'),\n-        headers: headers);\n+    final response =\n+        await client.get(Uri.parse(apiService.baseUrl), headers: headers);\n     return response;\n   }\n }\n"
+                },
+                {
+                    "date": 1667521619158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import 'package:http/http.dart' as http;\n import 'package:market_stock/exports.dart';\n \n-class HomeServices {\n+class StockServices {\n   final client = http.Client();\n   ApiService apiService = ApiService();\n \n   Future<Response> getStockMarketDetails() async {\n"
+                }
+            ],
+            "date": 1667520915274,
+            "name": "Commit-0",
+            "content": "import 'package:http/http.dart' as http;\nimport 'package:http/http.dart';\n\nimport '../services/api_service.dart';\n\nclass HomeServices {\n  final client = http.Client();\n  // final ApiService apiService = EnvConfig.baseUrl;\n  ApiService apiService = ApiService();\n\n  Future<Response> getWorkRequestDetails() async {\n    final headers = await apiService.setHeaders();\n    final response = await client.get(\n        Uri.parse(\n            '${apiService.baseUrl}work-requests?associations[]=technicians&associations[]=unit'),\n        headers: headers);\n    return response;\n  }\n}\n"
+        }
+    ]
+}

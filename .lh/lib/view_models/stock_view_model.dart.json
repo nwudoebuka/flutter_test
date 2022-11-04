@@ -1,0 +1,34 @@
+{
+    "sourceFile": "lib/view_models/stock_view_model.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1667522117903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667522134823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n import '../exports.dart';\n import 'base.dart';\n \n-class RequestViewModel extends BaseViewModel {\n+class StockViewModel extends BaseViewModel {\n   final ApiService apiService = ApiService();\n   final StockServices stockServices = StockServices();\n \n   Future<dynamic> getHeirachyList() async {\n"
+                },
+                {
+                    "date": 1667522604823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n class StockViewModel extends BaseViewModel {\n   final ApiService apiService = ApiService();\n   final StockServices stockServices = StockServices();\n \n-  Future<dynamic> getHeirachyList() async {\n+  Future<dynamic> getStockMarketDetails() async {\n     final response = await stockServices.getStockMarketDetails();\n     Map<String, dynamic> jsonResponse = json.decode(response.body);\n     return jsonResponse['data'];\n   }\n"
+                },
+                {
+                    "date": 1667522710735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,8 @@\n \n   Future<dynamic> getStockMarketDetails() async {\n     final response = await stockServices.getStockMarketDetails();\n     Map<String, dynamic> jsonResponse = json.decode(response.body);\n+    print(jsonResponse);\n     return jsonResponse['data'];\n   }\n }\n"
+                },
+                {
+                    "date": 1667525904754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,24 @@\n import 'dart:convert';\n \n+import 'package:market_stock/models/companies.dart';\n import 'package:market_stock/services/stockmarket.dart';\n \n import '../exports.dart';\n import 'base.dart';\n \n class StockViewModel extends BaseViewModel {\n   final ApiService apiService = ApiService();\n   final StockServices stockServices = StockServices();\n+  RandomCompanies? randomCompanies;\n \n   Future<dynamic> getStockMarketDetails() async {\n     final response = await stockServices.getStockMarketDetails();\n     Map<String, dynamic> jsonResponse = json.decode(response.body);\n     print(jsonResponse);\n+    if (jsonResponse.isNotEmpty) {\n+      randomCompanies = RandomCompanies.fromJson(jsonResponse);\n+      notifyListeners();\n+    }\n     return jsonResponse['data'];\n   }\n }\n"
+                }
+            ],
+            "date": 1667522117903,
+            "name": "Commit-0",
+            "content": "import 'dart:convert';\n\nimport 'package:market_stock/services/stockmarket.dart';\n\nimport '../exports.dart';\nimport 'base.dart';\n\nclass RequestViewModel extends BaseViewModel {\n  final ApiService apiService = ApiService();\n  final StockServices stockServices = StockServices();\n\n  Future<dynamic> getHeirachyList() async {\n    final response = await stockServices.getStockMarketDetails();\n    Map<String, dynamic> jsonResponse = json.decode(response.body);\n    return jsonResponse['data'];\n  }\n}\n"
+        }
+    ]
+}

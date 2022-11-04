@@ -1,0 +1,22 @@
+{
+    "sourceFile": "lib/utils/normal_text.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1667508614898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667512133007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     required this.text,\n     this.textTheme,\n     this.overFlow,\n     this.maxLines,\n-    this.color,\n+    this.color = Colors.white,\n   }) : super(key: key);\n \n   @override\n   Widget build(BuildContext context) {\n"
+                }
+            ],
+            "date": 1667508614898,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\n\nclass NormalText extends StatelessWidget {\n  double size;\n  FontWeight? fontWeight;\n  final String text;\n  final Color? color;\n  final TextAlign? textAlign;\n  TextTheme? textTheme;\n  TextOverflow? overFlow;\n  int? maxLines;\n\n  NormalText({\n    Key? key,\n    this.size = 16.0,\n    this.fontWeight = FontWeight.w400,\n    this.textAlign = TextAlign.left,\n    required this.text,\n    this.textTheme,\n    this.overFlow,\n    this.maxLines,\n    this.color,\n  }) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return Text(\n      text,\n      textAlign: textAlign,\n      overflow: overFlow,\n      softWrap: false,\n      maxLines: maxLines,\n      style: TextStyle(\n        color: color,\n        fontSize: size,\n        fontWeight: fontWeight,\n      ),\n    );\n  }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "sourceFile": "lib/exports.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1667509263435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667509300237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n export 'package:market_stock/utils/header_1.dart';\n export 'package:market_stock/utils/helper_widgets.dart';\n export 'package:market_stock/utils/normal_text.dart';\n+export 'package:market_stock/widget_files/homepage.dart';\n"
+                },
+                {
+                    "date": 1667510302165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n export 'package:market_stock/utils/header_1.dart';\n export 'package:market_stock/utils/helper_widgets.dart';\n export 'package:market_stock/utils/normal_text.dart';\n export 'package:market_stock/widget_files/homepage.dart';\n+export 'package:flutter/services.dart';\n"
+                },
+                {
+                    "date": 1667510339846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,4 +2,5 @@\n export 'package:market_stock/utils/helper_widgets.dart';\n export 'package:market_stock/utils/normal_text.dart';\n export 'package:market_stock/widget_files/homepage.dart';\n export 'package:flutter/services.dart';\n+export 'package:market_stock/utils/custom_textfield.dart';\n"
+                },
+                {
+                    "date": 1667510795555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n export 'package:market_stock/utils/header_1.dart';\n export 'package:market_stock/utils/helper_widgets.dart';\n export 'package:market_stock/utils/normal_text.dart';\n-export 'package:market_stock/widget_files/homepage.dart';\n+export 'package:market_stock/pages/homepage.dart';\n export 'package:flutter/services.dart';\n export 'package:market_stock/utils/custom_textfield.dart';\n"
+                },
+                {
+                    "date": 1667520991697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,4 +3,7 @@\n export 'package:market_stock/utils/normal_text.dart';\n export 'package:market_stock/pages/homepage.dart';\n export 'package:flutter/services.dart';\n export 'package:market_stock/utils/custom_textfield.dart';\n+export 'package:http/http.dart';\n+\n+export '../services/api_service.dart';\n"
+                },
+                {
+                    "date": 1667521072136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,9 @@\n export 'package:market_stock/pages/homepage.dart';\n export 'package:flutter/services.dart';\n export 'package:market_stock/utils/custom_textfield.dart';\n export 'package:http/http.dart';\n+export 'package:market_stock/models/stocks.dart';\n+export 'package:market_stock/utils/header_2.dart';\n+export 'package:market_stock/widgets/stock_list.dart';\n \n export '../services/api_service.dart';\n"
+                },
+                {
+                    "date": 1667521106482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n export 'package:http/http.dart';\n export 'package:market_stock/models/stocks.dart';\n export 'package:market_stock/utils/header_2.dart';\n export 'package:market_stock/widgets/stock_list.dart';\n-\n+export '../utils/card.dart';\n export '../services/api_service.dart';\n"
+                },
+                {
+                    "date": 1667521144841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,4 +9,6 @@\n export 'package:market_stock/utils/header_2.dart';\n export 'package:market_stock/widgets/stock_list.dart';\n export '../utils/card.dart';\n export '../services/api_service.dart';\n+export 'package:market_stock/utils/header_2.dart';\n+export 'package:market_stock/utils/normal_text.dart';\n"
+                },
+                {
+                    "date": 1667522875692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,4 +11,6 @@\n export '../utils/card.dart';\n export '../services/api_service.dart';\n export 'package:market_stock/utils/header_2.dart';\n export 'package:market_stock/utils/normal_text.dart';\n+export 'package:market_stock/view_models/stock_view_model.dart';\n+export 'package:provider/provider.dart';\n"
+                }
+            ],
+            "date": 1667509263435,
+            "name": "Commit-0",
+            "content": "export 'package:market_stock/utils/header_1.dart';\nexport 'package:market_stock/utils/helper_widgets.dart';\nexport 'package:market_stock/utils/normal_text.dart';\n"
+        }
+    ]
+}

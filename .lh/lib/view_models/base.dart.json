@@ -1,0 +1,26 @@
+{
+    "sourceFile": "lib/view_models/base.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1667520232268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667522263372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,8 @@\n     if (error != null) {\n       // errorMessage = pick(error, 'message').asStringOrNull();\n     }\n   }\n+\n+  @override\n+  void notifyListeners() {}\n }\n"
+                },
+                {
+                    "date": 1667522326554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,5 @@\n     if (error != null) {\n       // errorMessage = pick(error, 'message').asStringOrNull();\n     }\n   }\n-\n-  @override\n-  void notifyListeners() {}\n }\n"
+                }
+            ],
+            "date": 1667520232268,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\n\nclass BaseViewModel extends ChangeNotifier {\n  String? errorMessage;\n\n  void clearError() {\n    errorMessage = null;\n  }\n\n  void setError(e, String defaultMsg) {\n    final error = e.response?.data ?? {};\n    if (error != null) {\n      // errorMessage = pick(error, 'message').asStringOrNull();\n    }\n  }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "ios/services/api_service.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1667515604161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1667515604161,
+            "name": "Commit-0",
+            "content": "class ApiService {\n  final baseUrl = 'http://api.marketstack.com/v1/';\n\n  String? token;\n\n  setHeaders() async {\n    const token = '350b8acbefde974e0a0c3f427d55e232';\n    return {\n      'Content-Type': 'application/json; charset=utf-8',\n      'Authorization': 'Bearer $token'\n    };\n  }\n}\n"
+        }
+    ]
+}

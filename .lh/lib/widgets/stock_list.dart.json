@@ -1,0 +1,222 @@
+{
+    "sourceFile": "lib/widgets/stock_list.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 51,
+            "patches": [
+                {
+                    "date": 1667511072662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667511440315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n import '../models/stocks.dart';\n \n class StockList extends StatelessWidget {\n-  final List<Stocks> stocks;\n+  final List<StocksMarket> stocks;\n   const StockList({required this.stocks, super.key});\n \n   @override\n   Widget build(BuildContext context) {\n"
+                },
+                {
+                    "date": 1667511668114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n-import 'package:flutter/src/widgets/container.dart';\n-import 'package:flutter/src/widgets/framework.dart';\n+import 'package:flutter/material.dart';\n \n import '../models/stocks.dart';\n \n class StockList extends StatelessWidget {\n@@ -8,7 +7,10 @@\n   const StockList({required this.stocks, super.key});\n \n   @override\n   Widget build(BuildContext context) {\n-    return Container();\n+    return ListView.separated(\n+        itemBuilder: itemBuilder,\n+        separatorBuilder: separatorBuilder,\n+        itemCount: itemCount);\n   }\n }\n"
+                },
+                {
+                    "date": 1667511720374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,10 @@\n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n         itemBuilder: itemBuilder,\n-        separatorBuilder: separatorBuilder,\n+        separatorBuilder: (context, index) => const Divider(\n+              color: Colors.grey,\n+            ),\n         itemCount: itemCount);\n   }\n }\n"
+                },
+                {
+                    "date": 1667511737339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,7 +12,7 @@\n         itemBuilder: itemBuilder,\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n-        itemCount: itemCount);\n+        itemCount: stocks.length);\n   }\n }\n"
+                },
+                {
+                    "date": 1667511808373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n \n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n-        itemBuilder: itemBuilder,\n+        itemBuilder: ((context, index) {\n+          return const Text('My Stocks');\n+        }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n         itemCount: stocks.length);\n"
+                },
+                {
+                    "date": 1667511850847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\n+import 'package:market_stock/utils/normal_text.dart';\n \n import '../models/stocks.dart';\n \n class StockList extends StatelessWidget {\n@@ -9,9 +10,9 @@\n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n         itemBuilder: ((context, index) {\n-          return const Text('My Stocks');\n+          return NormalText(text: 'My Market Stocks');\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n"
+                },
+                {
+                    "date": 1667511859474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n-        itemCount: stocks.length);\n+        itemCount: 5);\n   }\n }\n"
+                },
+                {
+                    "date": 1667512032168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n \n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n+        shrinkWrap: true,\n         itemBuilder: ((context, index) {\n           return NormalText(text: 'My Market Stocks');\n         }),\n         separatorBuilder: (context, index) => const Divider(\n"
+                },
+                {
+                    "date": 1667512096306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,12 @@\n   Widget build(BuildContext context) {\n     return ListView.separated(\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n-          return NormalText(text: 'My Market Stocks');\n+          return NormalText(\n+            text: 'My Market Stocks',\n+            color: Colors.white,\n+          );\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n"
+                },
+                {
+                    "date": 1667512140900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n           return NormalText(\n             text: 'My Market Stocks',\n-            color: Colors.white,\n           );\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n"
+                },
+                {
+                    "date": 1667512388917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,10 @@\n \n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n+        physics: const AlwaysScrollableScrollPhysics(\n+            parent: BouncingScrollPhysics()),\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n           return NormalText(\n             text: 'My Market Stocks',\n"
+                },
+                {
+                    "date": 1667513429190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,14 @@\n         physics: const AlwaysScrollableScrollPhysics(\n             parent: BouncingScrollPhysics()),\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n-          return NormalText(\n-            text: 'My Market Stocks',\n+          final stock = stocks[index];\n+          return ListTile(\n+            contentPadding: const EdgeInsets.all(10),\n+            title: Column(\n+              children: [NormalText(text: stock.symbol!)],\n+            ),\n           );\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n"
+                },
+                {
+                    "date": 1667513472253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,7 +24,7 @@\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n-        itemCount: 5);\n+        itemCount: stocks.length);\n   }\n }\n"
+                },
+                {
+                    "date": 1667513490605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n           final stock = stocks[index];\n           return ListTile(\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n+              crossAxisAlignment: CrossAxisAlignment.start,\n               children: [NormalText(text: stock.symbol!)],\n             ),\n           );\n         }),\n"
+                },
+                {
+                    "date": 1667513537736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import 'package:flutter/material.dart';\n-import 'package:market_stock/utils/normal_text.dart';\n+import 'package:market_stock/utils/header_1.dart';\n \n import '../models/stocks.dart';\n \n class StockList extends StatelessWidget {\n@@ -18,9 +18,9 @@\n           return ListTile(\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n-              children: [NormalText(text: stock.symbol!)],\n+              children: [HeaderOne(text: stock.symbol!)],\n             ),\n           );\n         }),\n         separatorBuilder: (context, index) => const Divider(\n"
+                },
+                {
+                    "date": 1667513558492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,14 @@\n           return ListTile(\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n-              children: [HeaderOne(text: stock.symbol!)],\n+              children: [\n+                HeaderOne(\n+                  text: stock.symbol!,\n+                  size: 10,\n+                )\n+              ],\n             ),\n           );\n         }),\n         separatorBuilder: (context, index) => const Divider(\n"
+                },
+                {
+                    "date": 1667513578715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import 'package:flutter/material.dart';\n-import 'package:market_stock/utils/header_1.dart';\n+import 'package:market_stock/utils/header_2.dart';\n \n import '../models/stocks.dart';\n \n class StockList extends StatelessWidget {\n@@ -19,9 +19,9 @@\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n-                HeaderOne(\n+                HeaderTwo(\n                   text: stock.symbol!,\n                   size: 10,\n                 )\n               ],\n"
+                },
+                {
+                    "date": 1667513600511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,36 @@\n+import 'package:flutter/material.dart';\n+import 'package:market_stock/utils/header_2.dart';\n+\n+import '../models/stocks.dart';\n+\n+class StockList extends StatelessWidget {\n+  final List<StocksMarket> stocks;\n+  const StockList({required this.stocks, super.key});\n+\n+  @override\n+  Widget build(BuildContext context) {\n+    return ListView.separated(\n+        physics: const AlwaysScrollableScrollPhysics(\n+            parent: BouncingScrollPhysics()),\n+        shrinkWrap: true,\n+        itemBuilder: ((context, index) {\n+          final stock = stocks[index];\n+          return ListTile(\n+            contentPadding: const EdgeInsets.all(10),\n+            title: Column(\n+              crossAxisAlignment: CrossAxisAlignment.start,\n+              children: [\n+                HeaderTwo(\n+                  text: stock.symbol!,\n+                  // size: 10,\n+                )\n+              ],\n+            ),\n+          );\n+        }),\n+        separatorBuilder: (context, index) => const Divider(\n+              color: Colors.grey,\n+            ),\n+        itemCount: stocks.length);\n+  }\n+}\n"
+                },
+                {
+                    "date": 1667513616425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderTwo(\n                   text: stock.symbol!,\n+                  color: Colors.white,\n                   // size: 10,\n                 )\n               ],\n             ),\n@@ -33,40 +34,4 @@\n             ),\n         itemCount: stocks.length);\n   }\n }\n-import 'package:flutter/material.dart';\n-import 'package:market_stock/utils/header_2.dart';\n-\n-import '../models/stocks.dart';\n-\n-class StockList extends StatelessWidget {\n-  final List<StocksMarket> stocks;\n-  const StockList({required this.stocks, super.key});\n-\n-  @override\n-  Widget build(BuildContext context) {\n-    return ListView.separated(\n-        physics: const AlwaysScrollableScrollPhysics(\n-            parent: BouncingScrollPhysics()),\n-        shrinkWrap: true,\n-        itemBuilder: ((context, index) {\n-          final stock = stocks[index];\n-          return ListTile(\n-            contentPadding: const EdgeInsets.all(10),\n-            title: Column(\n-              crossAxisAlignment: CrossAxisAlignment.start,\n-              children: [\n-                HeaderTwo(\n-                  text: stock.symbol!,\n-                  size: 10,\n-                )\n-              ],\n-            ),\n-          );\n-        }),\n-        separatorBuilder: (context, index) => const Divider(\n-              color: Colors.grey,\n-            ),\n-        itemCount: stocks.length);\n-  }\n-}\n"
+                },
+                {
+                    "date": 1667513624455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n               children: [\n                 HeaderTwo(\n                   text: stock.symbol!,\n                   color: Colors.white,\n-                  // size: 10,\n+                  size: 20,\n                 )\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667513644632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n               children: [\n                 HeaderTwo(\n                   text: stock.symbol!,\n                   color: Colors.white,\n-                  size: 20,\n+                  size: 24,\n                 )\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667513686190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n                 HeaderTwo(\n                   text: stock.symbol!,\n                   color: Colors.white,\n                   size: 24,\n-                )\n+                ),\n+                HeaderTwo(text: stock.company!, size: 20)\n               ],\n             ),\n           );\n         }),\n"
+                },
+                {
+                    "date": 1667514366558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import 'package:flutter/material.dart';\n import 'package:market_stock/utils/header_2.dart';\n+import 'package:market_stock/utils/normal_text.dart';\n \n import '../models/stocks.dart';\n \n class StockList extends StatelessWidget {\n@@ -27,8 +28,17 @@\n                 ),\n                 HeaderTwo(text: stock.company!, size: 20)\n               ],\n             ),\n+            trailing: Column(\n+              crossAxisAlignment: CrossAxisAlignment.start,\n+              children: [\n+                NormalText(\n+                  text: \" \\$${stock.price!}\",\n+                  color: Colors.white,\n+                ),\n+              ],\n+            ),\n           );\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n"
+                },
+                {
+                    "date": 1667514437940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,9 @@\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 NormalText(\n                   text: \" \\$${stock.price!}\",\n+                  fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                 ),\n               ],\n             ),\n"
+                },
+                {
+                    "date": 1667514453665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,9 @@\n                 NormalText(\n                   text: \" \\$${stock.price!}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n+                  size: 20,\n                 ),\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667514460830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n                 NormalText(\n                   text: \" \\$${stock.price!}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n-                  size: 20,\n+                  size: 18,\n                 ),\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667514527823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,13 @@\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n+                Container(\n+                  height: 25,\n+                  width: 75,\n+                  decoration: const BoxDecoration(color: Colors.red),\n+                )\n               ],\n             ),\n           );\n         }),\n"
+                },
+                {
+                    "date": 1667514542858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                   size: 18,\n                 ),\n                 Container(\n                   height: 25,\n-                  width: 75,\n+                  width: 60,\n                   decoration: const BoxDecoration(color: Colors.red),\n                 )\n               ],\n             ),\n"
+                },
+                {
+                    "date": 1667514548141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                   size: 18,\n                 ),\n                 Container(\n                   height: 25,\n-                  width: 60,\n+                  width: 65,\n                   decoration: const BoxDecoration(color: Colors.red),\n                 )\n               ],\n             ),\n"
+                },
+                {
+                    "date": 1667514588444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,11 @@\n                 ),\n                 Container(\n                   height: 25,\n                   width: 65,\n-                  decoration: const BoxDecoration(color: Colors.red),\n+                  decoration: BoxDecoration(\n+                      color: Colors.red,\n+                      borderRadius: BorderRadius.circular(8)),\n                 )\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667514617580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                 HeaderTwo(text: stock.company!, size: 20)\n               ],\n             ),\n             trailing: Column(\n-              crossAxisAlignment: CrossAxisAlignment.start,\n+              crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n                   text: \" \\$${stock.price!}\",\n                   fontWeight: FontWeight.bold,\n"
+                },
+                {
+                    "date": 1667514655829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,9 @@\n                   width: 65,\n                   decoration: BoxDecoration(\n                       color: Colors.red,\n                       borderRadius: BorderRadius.circular(8)),\n+                  child: NormalText(text: '-1.09%'),\n                 )\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667514664174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n                   width: 65,\n                   decoration: BoxDecoration(\n                       color: Colors.red,\n                       borderRadius: BorderRadius.circular(8)),\n-                  child: NormalText(text: '-1.09%'),\n+                  child: Center(child: NormalText(text: '-1.09%')),\n                 )\n               ],\n             ),\n           );\n"
+                },
+                {
+                    "date": 1667521159401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,7 @@\n import 'package:flutter/material.dart';\n-import 'package:market_stock/utils/header_2.dart';\n-import 'package:market_stock/utils/normal_text.dart';\n+import 'package:market_stock/exports.dart';\n \n-import '../models/stocks.dart';\n-\n class StockList extends StatelessWidget {\n   final List<StocksMarket> stocks;\n   const StockList({required this.stocks, super.key});\n \n"
+                },
+                {
+                    "date": 1667523845857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,20 +18,20 @@\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderTwo(\n-                  text: stock.symbol!,\n+                  text: stock.data[0].symbol,\n                   color: Colors.white,\n                   size: 24,\n                 ),\n-                HeaderTwo(text: stock.company!, size: 20)\n+                HeaderTwo(text: stock.data[0].exchange, size: 20)\n               ],\n             ),\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${stock.price!}\",\n+                  text: \" \\$${stock.data[0].volume}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667524226604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,20 +18,20 @@\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderTwo(\n-                  text: stock.data[0].symbol,\n+                  text: stock.data[index].symbol,\n                   color: Colors.white,\n                   size: 24,\n                 ),\n-                HeaderTwo(text: stock.data[0].exchange, size: 20)\n+                HeaderTwo(text: stock.data[index].exchange, size: 20)\n               ],\n             ),\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${stock.data[0].volume}\",\n+                  text: \" \\$${stock.data[index].volume}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667524250496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import 'package:flutter/material.dart';\n import 'package:market_stock/exports.dart';\n \n class StockList extends StatelessWidget {\n-  final List<StocksMarket> stocks;\n+  final List<dynamic> stocks;\n   const StockList({required this.stocks, super.key});\n \n   @override\n   Widget build(BuildContext context) {\n"
+                },
+                {
+                    "date": 1667524783884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,13 +18,15 @@\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderTwo(\n-                  text: stock.data[index].symbol,\n+                  text: stock.data[index].symbol ?? \"APPLE\",\n                   color: Colors.white,\n                   size: 24,\n                 ),\n-                HeaderTwo(text: stock.data[index].exchange, size: 20)\n+                HeaderTwo(\n+                    text: stock.data[index].exchange ?? 'Apple Company',\n+                    size: 20)\n               ],\n             ),\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n"
+                },
+                {
+                    "date": 1667526052047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,39 +1,39 @@\n import 'package:flutter/material.dart';\n import 'package:market_stock/exports.dart';\n \n class StockList extends StatelessWidget {\n-  final List<dynamic> stocks;\n-  const StockList({required this.stocks, super.key});\n+  final List<dynamic> companies;\n+  const StockList({required this.companies, super.key});\n \n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n         physics: const AlwaysScrollableScrollPhysics(\n             parent: BouncingScrollPhysics()),\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n-          final stock = stocks[index];\n+          final company = companies[index];\n           return ListTile(\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderTwo(\n-                  text: stock.data[index].symbol ?? \"APPLE\",\n+                  text: company.data[index].symbol ?? \"APPLE\",\n                   color: Colors.white,\n                   size: 24,\n                 ),\n                 HeaderTwo(\n-                    text: stock.data[index].exchange ?? 'Apple Company',\n+                    text: company.data[index].exchange ?? 'Apple Company',\n                     size: 20)\n               ],\n             ),\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${stock.data[index].volume}\",\n+                  text: \" \\$${company.data[index].volume}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n@@ -51,7 +51,7 @@\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n-        itemCount: stocks.length);\n+        itemCount: companies.length);\n   }\n }\n"
+                },
+                {
+                    "date": 1667526157302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${company.data[index].volume}\",\n+                  text: \" \\$${company.pagination.total}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667526172880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,9 @@\n                   color: Colors.white,\n                   size: 24,\n                 ),\n                 HeaderTwo(\n-                    text: company.data[index].exchange ?? 'Apple Company',\n-                    size: 20)\n+                    text: company.data[index].name ?? 'Apple Company', size: 20)\n               ],\n             ),\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n"
+                },
+                {
+                    "date": 1667526871635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${company.pagination.total}\",\n+                  text: '0', //\" \\$${company.pagination.total}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667526994966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,14 +18,13 @@\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderTwo(\n-                  text: company.data[index].symbol ?? \"APPLE\",\n+                  text: company.symbol ?? \"APPLE\",\n                   color: Colors.white,\n                   size: 24,\n                 ),\n-                HeaderTwo(\n-                    text: company.data[index].name ?? 'Apple Company', size: 20)\n+                HeaderTwo(text: company.name ?? 'Apple Company', size: 20)\n               ],\n             ),\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n"
+                },
+                {
+                    "date": 1667527056966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: '0', //\" \\$${company.pagination.total}\",\n+                  text: \" \\$${company.pagination.total}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667527333459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,10 @@\n import 'package:market_stock/exports.dart';\n \n class StockList extends StatelessWidget {\n   final List<dynamic> companies;\n-  const StockList({required this.companies, super.key});\n+  final int total;\n+  const StockList({required this.companies, required this.total, super.key});\n \n   @override\n   Widget build(BuildContext context) {\n     return ListView.separated(\n"
+                },
+                {
+                    "date": 1667527409605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${company.pagination.total}\",\n+                  text: \" \\$${company.pagination.total.toString()}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667527426997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${company.pagination.total.toString()}\",\n+                  text: \" \\$${company.total.toString()}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667527478024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n             parent: BouncingScrollPhysics()),\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n           final company = companies[index];\n+          final amt = total;\n           return ListTile(\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n"
+                },
+                {
+                    "date": 1667527523138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n             parent: BouncingScrollPhysics()),\n         shrinkWrap: true,\n         itemBuilder: ((context, index) {\n           final company = companies[index];\n-          final amt = total;\n+          final amount = total;\n           return ListTile(\n             contentPadding: const EdgeInsets.all(10),\n             title: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n@@ -31,9 +31,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${company.total.toString()}\",\n+                  text: \" \\$${company.amount.toString()}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667527667666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n             trailing: Column(\n               crossAxisAlignment: CrossAxisAlignment.center,\n               children: [\n                 NormalText(\n-                  text: \" \\$${company.amount.toString()}\",\n+                  text: \"1000\", //\" \\$${company.amount.toString()}\",\n                   fontWeight: FontWeight.bold,\n                   color: Colors.white,\n                   size: 18,\n                 ),\n"
+                },
+                {
+                    "date": 1667556711227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,7 +51,7 @@\n         }),\n         separatorBuilder: (context, index) => const Divider(\n               color: Colors.grey,\n             ),\n-        itemCount: companies.length);\n+        itemCount: 10);\n   }\n }\n"
+                }
+            ],
+            "date": 1667511072662,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/src/widgets/container.dart';\nimport 'package:flutter/src/widgets/framework.dart';\n\nimport '../models/stocks.dart';\n\nclass StockList extends StatelessWidget {\n  final List<Stocks> stocks;\n  const StockList({required this.stocks, super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Container();\n  }\n}\n"
+        }
+    ]
+}

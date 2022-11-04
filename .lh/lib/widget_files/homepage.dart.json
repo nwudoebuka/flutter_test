@@ -1,0 +1,134 @@
+{
+    "sourceFile": "lib/widget_files/homepage.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 29,
+            "patches": [
+                {
+                    "date": 1667507437910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667507457516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n import 'package:flutter/material.dart';\n-import 'package:flutter/src/widgets/container.dart';\n-import 'package:flutter/src/widgets/framework.dart';\n \n class MyWidget extends StatelessWidget {\n   const MyWidget({super.key});\n \n"
+                },
+                {
+                    "date": 1667507486241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import 'package:flutter/material.dart';\n \n-class MyWidget extends StatelessWidget {\n-  const MyWidget({super.key});\n+class HomePage extends StatelessWidget {\n+  const HomePage({super.key});\n \n   @override\n   Widget build(BuildContext context) {\n     return const Text('Homepage');\n"
+                },
+                {
+                    "date": 1667507587334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,11 @@\n   const HomePage({super.key});\n \n   @override\n   Widget build(BuildContext context) {\n-    return const Text('Homepage');\n+    return Scaffold(\n+      body: Stack(\n+        children: const [],\n+      ),\n+    );\n   }\n }\n"
+                },
+                {
+                    "date": 1667507695171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,13 @@\n   @override\n   Widget build(BuildContext context) {\n     return Scaffold(\n       body: Stack(\n-        children: const [],\n+        children: [\n+          Container(\n+            padding: const EdgeInsets.all(8),\n+          )\n+        ],\n       ),\n     );\n   }\n }\n"
+                },
+                {
+                    "date": 1667507723385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n       body: Stack(\n         children: [\n           Container(\n             padding: const EdgeInsets.all(8),\n+            width: MediaQuery.of(context).size.width,\n           )\n         ],\n       ),\n     );\n"
+                },
+                {
+                    "date": 1667507739446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n         children: [\n           Container(\n             padding: const EdgeInsets.all(8),\n             width: MediaQuery.of(context).size.width,\n+            color: Colors.black,\n           )\n         ],\n       ),\n     );\n"
+                },
+                {
+                    "date": 1667507749594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         children: [\n           Container(\n             padding: const EdgeInsets.all(8),\n             width: MediaQuery.of(context).size.width,\n-            color: Colors.black,\n+            color: Colors.grey,\n           )\n         ],\n       ),\n     );\n"
+                },
+                {
+                    "date": 1667507760356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         children: [\n           Container(\n             padding: const EdgeInsets.all(8),\n             width: MediaQuery.of(context).size.width,\n-            color: Colors.grey,\n+            color: Colors.blueGrey,\n           )\n         ],\n       ),\n     );\n"
+                },
+                {
+                    "date": 1667507858105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,11 @@\n           Container(\n             padding: const EdgeInsets.all(8),\n             width: MediaQuery.of(context).size.width,\n             color: Colors.blueGrey,\n+            child: Column(\n+              children: const [Text('Stocks')],\n+            ),\n           )\n         ],\n       ),\n     );\n"
+                },
+                {
+                    "date": 1667507947342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n             padding: const EdgeInsets.all(8),\n             width: MediaQuery.of(context).size.width,\n             color: Colors.blueGrey,\n             child: Column(\n+              crossAxisAlignment: CrossAxisAlignment.start,\n               children: const [Text('Stocks')],\n             ),\n           )\n         ],\n"
+                },
+                {
+                    "date": 1667508000681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,14 @@\n             width: MediaQuery.of(context).size.width,\n             color: Colors.blueGrey,\n             child: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n-              children: const [Text('Stocks')],\n+              children: const [\n+                Text(\n+                  'Stocks',\n+                  style: TextStyle(fontSize: 36),\n+                )\n+              ],\n             ),\n           )\n         ],\n       ),\n"
+                },
+                {
+                    "date": 1667508317358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\n+import 'package:market_stock/utils/header_1.dart';\n \n class HomePage extends StatelessWidget {\n   const HomePage({super.key});\n \n@@ -13,14 +14,9 @@\n             width: MediaQuery.of(context).size.width,\n             color: Colors.blueGrey,\n             child: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n-              children: const [\n-                Text(\n-                  'Stocks',\n-                  style: TextStyle(fontSize: 36),\n-                )\n-              ],\n+              children: [HeaderOne(text: 'Stocks')],\n             ),\n           )\n         ],\n       ),\n"
+                },
+                {
+                    "date": 1667508372360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,14 @@\n             width: MediaQuery.of(context).size.width,\n             color: Colors.blueGrey,\n             child: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n-              children: [HeaderOne(text: 'Stocks')],\n+              children: [\n+                HeaderOne(\n+                  text: 'Stocks',\n+                  color: Colors.white,\n+                )\n+              ],\n             ),\n           )\n         ],\n       ),\n"
+                },
+                {
+                    "date": 1667508381951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         children: [\n           Container(\n             padding: const EdgeInsets.all(8),\n             width: MediaQuery.of(context).size.width,\n-            color: Colors.blueGrey,\n+            color: Colors.black,\n             child: Column(\n               crossAxisAlignment: CrossAxisAlignment.start,\n               children: [\n                 HeaderOne(\n"
+                },
+                {
+                    "date": 1667508395693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,26 +5,28 @@\n   const HomePage({super.key});\n \n   @override\n   Widget build(BuildContext context) {\n-    return Scaffold(\n-      body: Stack(\n-        children: [\n-          Container(\n-            padding: const EdgeInsets.all(8),\n-            width: MediaQuery.of(context).size.width,\n-            color: Colors.black,\n-            child: Column(\n-              crossAxisAlignment: CrossAxisAlignment.start,\n-              children: [\n-                HeaderOne(\n-                  text: 'Stocks',\n-                  color: Colors.white,\n-                )\n-              ],\n-            ),\n-          )\n-        ],\n+    return SafeArea(\n+      child: Scaffold(\n+        body: Stack(\n+          children: [\n+            Container(\n+              padding: const EdgeInsets.all(8),\n+              width: MediaQuery.of(context).size.width,\n+              color: Colors.black,\n+              child: Column(\n+                crossAxisAlignment: CrossAxisAlignment.start,\n+                children: [\n+                  HeaderOne(\n+                    text: 'Stocks',\n+                    color: Colors.white,\n+                  )\n+                ],\n+              ),\n+            )\n+          ],\n+        ),\n       ),\n     );\n   }\n }\n"
+                },
+                {
+                    "date": 1667508673314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,16 @@\n   const HomePage({super.key});\n \n   @override\n   Widget build(BuildContext context) {\n-    return SafeArea(\n-      child: Scaffold(\n-        body: Stack(\n-          children: [\n-            Container(\n-              padding: const EdgeInsets.all(8),\n-              width: MediaQuery.of(context).size.width,\n-              color: Colors.black,\n+    return Scaffold(\n+      body: Stack(\n+        children: [\n+          Container(\n+            padding: const EdgeInsets.all(8),\n+            width: MediaQuery.of(context).size.width,\n+            color: Colors.black,\n+            child: SafeArea(\n               child: Column(\n                 crossAxisAlignment: CrossAxisAlignment.start,\n                 children: [\n                   HeaderOne(\n@@ -22,11 +22,11 @@\n                     color: Colors.white,\n                   )\n                 ],\n               ),\n-            )\n-          ],\n-        ),\n+            ),\n+          )\n+        ],\n       ),\n     );\n   }\n }\n"
+                },
+                {
+                    "date": 1667508698843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n               child: Column(\n                 crossAxisAlignment: CrossAxisAlignment.start,\n                 children: [\n                   HeaderOne(\n-                    text: 'Stocks',\n+                    text: 'Market Stocks',\n                     color: Colors.white,\n                   )\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1667509131144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import 'package:flutter/material.dart';\n import 'package:market_stock/utils/header_1.dart';\n+import 'package:market_stock/utils/normal_text.dart';\n \n class HomePage extends StatelessWidget {\n   const HomePage({super.key});\n \n@@ -19,9 +20,10 @@\n                 children: [\n                   HeaderOne(\n                     text: 'Market Stocks',\n                     color: Colors.white,\n-                  )\n+                  ),\n+                  NormalText(text: 'November 4')\n                 ],\n               ),\n             ),\n           )\n"
+                },
+                {
+                    "date": 1667509147233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                   HeaderOne(\n                     text: 'Market Stocks',\n                     color: Colors.white,\n                   ),\n-                  NormalText(text: 'November 4')\n+                  NormalText(text: 'November 4', color: Colors.white)\n                 ],\n               ),\n             ),\n           )\n"
+                },
+                {
+                    "date": 1667509195773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import 'package:flutter/material.dart';\n import 'package:market_stock/utils/header_1.dart';\n+import 'package:market_stock/utils/helper_widgets.dart';\n import 'package:market_stock/utils/normal_text.dart';\n \n class HomePage extends StatelessWidget {\n   const HomePage({super.key});\n@@ -21,8 +22,9 @@\n                   HeaderOne(\n                     text: 'Market Stocks',\n                     color: Colors.white,\n                   ),\n+                  20.vSpace,\n                   NormalText(text: 'November 4', color: Colors.white)\n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1667509266315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n import 'package:flutter/material.dart';\n-import 'package:market_stock/utils/header_1.dart';\n-import 'package:market_stock/utils/helper_widgets.dart';\n-import 'package:market_stock/utils/normal_text.dart';\n \n class HomePage extends StatelessWidget {\n   const HomePage({super.key});\n \n"
+                },
+                {
+                    "date": 1667509279259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\n+import 'package:market_stock/exports.dart';\n \n class HomePage extends StatelessWidget {\n   const HomePage({super.key});\n \n"
+                },
+                {
+                    "date": 1667509528103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       body: Stack(\n         children: [\n           Container(\n             padding: const EdgeInsets.all(8),\n-            width: MediaQuery.of(context).size.width,\n+            width: context.widthPx,\n             color: Colors.black,\n             child: SafeArea(\n               child: Column(\n                 crossAxisAlignment: CrossAxisAlignment.start,\n"
+                },
+                {
+                    "date": 1667509664909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import 'package:flutter/material.dart';\n import 'package:market_stock/exports.dart';\n+import 'package:market_stock/utils/header_2.dart';\n \n class HomePage extends StatelessWidget {\n   const HomePage({super.key});\n \n@@ -21,9 +22,11 @@\n                     text: 'Market Stocks',\n                     color: Colors.white,\n                   ),\n                   20.vSpace,\n-                  NormalText(text: 'November 4', color: Colors.white)\n+                  HeaderTwo(\n+                    text: 'November 4',\n+                  )\n                 ],\n               ),\n             ),\n           )\n"
+                },
+                {
+                    "date": 1667510330835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,27 @@\n                   ),\n                   20.vSpace,\n                   HeaderTwo(\n                     text: 'November 4',\n-                  )\n+                  ),\n+                  20.vSpace,\n+                  Flexible(\n+                    child: CustomTextField(\n+                        textInputType: TextInputType.text,\n+                        textController: searchController,\n+                        autoFocus: false,\n+                        validate: Validator.password,\n+                        isPassword: false,\n+                        hintText: 'Search',\n+                        height: 52,\n+                        onFocus: searchFocus,\n+                        suffixIcon: Icon(\n+                          Icons.search,\n+                          color: Colors.grey.shade500,\n+                        ),\n+                        onChanged: (value) => _orderHistorySearch(value!),\n+                        textInputAction: TextInputAction.done),\n+                  ),\n                 ],\n               ),\n             ),\n           )\n"
+                },
+                {
+                    "date": 1667510423021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,10 @@\n import 'package:market_stock/exports.dart';\n import 'package:market_stock/utils/header_2.dart';\n \n class HomePage extends StatelessWidget {\n-  const HomePage({super.key});\n+  HomePage({super.key});\n+  TextEditingController searchController = TextEditingController();\n \n   @override\n   Widget build(BuildContext context) {\n     return Scaffold(\n@@ -31,18 +32,18 @@\n                     child: CustomTextField(\n                         textInputType: TextInputType.text,\n                         textController: searchController,\n                         autoFocus: false,\n-                        validate: Validator.password,\n+                        // validate: Validator.password,\n                         isPassword: false,\n                         hintText: 'Search',\n                         height: 52,\n-                        onFocus: searchFocus,\n+                        // onFocus: searchFocus,\n                         suffixIcon: Icon(\n                           Icons.search,\n                           color: Colors.grey.shade500,\n                         ),\n-                        onChanged: (value) => _orderHistorySearch(value!),\n+                        onChanged: (value) {},\n                         textInputAction: TextInputAction.done),\n                   ),\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1667510472489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,38 +15,41 @@\n             padding: const EdgeInsets.all(8),\n             width: context.widthPx,\n             color: Colors.black,\n             child: SafeArea(\n-              child: Column(\n-                crossAxisAlignment: CrossAxisAlignment.start,\n-                children: [\n-                  HeaderOne(\n-                    text: 'Market Stocks',\n-                    color: Colors.white,\n-                  ),\n-                  20.vSpace,\n-                  HeaderTwo(\n-                    text: 'November 4',\n-                  ),\n-                  20.vSpace,\n-                  Flexible(\n-                    child: CustomTextField(\n-                        textInputType: TextInputType.text,\n-                        textController: searchController,\n-                        autoFocus: false,\n-                        // validate: Validator.password,\n-                        isPassword: false,\n-                        hintText: 'Search',\n-                        height: 52,\n-                        // onFocus: searchFocus,\n-                        suffixIcon: Icon(\n-                          Icons.search,\n-                          color: Colors.grey.shade500,\n-                        ),\n-                        onChanged: (value) {},\n-                        textInputAction: TextInputAction.done),\n-                  ),\n-                ],\n+              child: Padding(\n+                padding: const EdgeInsets.all(8.0),\n+                child: Column(\n+                  crossAxisAlignment: CrossAxisAlignment.start,\n+                  children: [\n+                    HeaderOne(\n+                      text: 'Market Stocks',\n+                      color: Colors.white,\n+                    ),\n+                    20.vSpace,\n+                    HeaderTwo(\n+                      text: 'November 4',\n+                    ),\n+                    20.vSpace,\n+                    Flexible(\n+                      child: CustomTextField(\n+                          textInputType: TextInputType.text,\n+                          textController: searchController,\n+                          autoFocus: false,\n+                          // validate: Validator.password,\n+                          isPassword: false,\n+                          hintText: 'Search',\n+                          height: 52,\n+                          // onFocus: searchFocus,\n+                          suffixIcon: Icon(\n+                            Icons.search,\n+                            color: Colors.grey.shade500,\n+                          ),\n+                          onChanged: (value) {},\n+                          textInputAction: TextInputAction.done),\n+                    ),\n+                  ],\n+                ),\n               ),\n             ),\n           )\n         ],\n"
+                },
+                {
+                    "date": 1667510480678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             width: context.widthPx,\n             color: Colors.black,\n             child: SafeArea(\n               child: Padding(\n-                padding: const EdgeInsets.all(8.0),\n+                padding: const EdgeInsets.all(20.0),\n                 child: Column(\n                   crossAxisAlignment: CrossAxisAlignment.start,\n                   children: [\n                     HeaderOne(\n"
+                },
+                {
+                    "date": 1667510490292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n                     20.vSpace,\n                     HeaderTwo(\n                       text: 'November 4',\n                     ),\n-                    20.vSpace,\n+                    10.vSpace,\n                     Flexible(\n                       child: CustomTextField(\n                           textInputType: TextInputType.text,\n                           textController: searchController,\n"
+                }
+            ],
+            "date": 1667507437910,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\nimport 'package:flutter/src/widgets/container.dart';\nimport 'package:flutter/src/widgets/framework.dart';\n\nclass MyWidget extends StatelessWidget {\n  const MyWidget({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Text('Homepage');\n  }\n}\n"
+        }
+    ]
+}

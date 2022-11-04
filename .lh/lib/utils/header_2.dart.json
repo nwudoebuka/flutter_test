@@ -1,0 +1,26 @@
+{
+    "sourceFile": "lib/utils/header_2.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1667508564746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667509393018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,40 +1,37 @@\n import 'package:flutter/material.dart';\n \n-class AppText extends StatelessWidget {\n+class HeaderTwo extends StatelessWidget {\n   double size;\n-  FontWeight? fontWeight;\n   final String text;\n   final Color? color;\n   final TextAlign? textAlign;\n   TextTheme? textTheme;\n-  TextOverflow? overFlow;\n+  TextOverflow? overflow;\n   int? maxLines;\n \n-  AppText({\n-    Key? key,\n-    this.size = 16.0,\n-    this.fontWeight = FontWeight.w400,\n-    this.textAlign = TextAlign.left,\n-    required this.text,\n-    this.textTheme,\n-    this.overFlow,\n-    this.maxLines,\n-    this.color,\n-  }) : super(key: key);\n+  HeaderTwo(\n+      {Key? key,\n+      this.size = 36,\n+      required this.text,\n+      this.textAlign = TextAlign.left,\n+      this.textTheme,\n+      this.overflow,\n+      this.maxLines,\n+      this.color})\n+      : super(key: key);\n \n   @override\n   Widget build(BuildContext context) {\n     return Text(\n       text,\n       textAlign: textAlign,\n-      overflow: overFlow,\n-      softWrap: false,\n+      overflow: overflow,\n       maxLines: maxLines,\n       style: TextStyle(\n         color: color,\n         fontSize: size,\n-        fontWeight: fontWeight,\n+        fontWeight: FontWeight.bold,\n       ),\n     );\n   }\n }\n"
+                },
+                {
+                    "date": 1667509642246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,15 +10,15 @@\n   int? maxLines;\n \n   HeaderTwo(\n       {Key? key,\n-      this.size = 36,\n+      this.size = 30,\n       required this.text,\n       this.textAlign = TextAlign.left,\n       this.textTheme,\n       this.overflow,\n       this.maxLines,\n-      this.color})\n+      this.color = Colors.grey})\n       : super(key: key);\n \n   @override\n   Widget build(BuildContext context) {\n"
+                }
+            ],
+            "date": 1667508564745,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\n\nclass AppText extends StatelessWidget {\n  double size;\n  FontWeight? fontWeight;\n  final String text;\n  final Color? color;\n  final TextAlign? textAlign;\n  TextTheme? textTheme;\n  TextOverflow? overFlow;\n  int? maxLines;\n\n  AppText({\n    Key? key,\n    this.size = 16.0,\n    this.fontWeight = FontWeight.w400,\n    this.textAlign = TextAlign.left,\n    required this.text,\n    this.textTheme,\n    this.overFlow,\n    this.maxLines,\n    this.color,\n  }) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return Text(\n      text,\n      textAlign: textAlign,\n      overflow: overFlow,\n      softWrap: false,\n      maxLines: maxLines,\n      style: TextStyle(\n        color: color,\n        fontSize: size,\n        fontWeight: fontWeight,\n      ),\n    );\n  }\n}\n"
+        }
+    ]
+}

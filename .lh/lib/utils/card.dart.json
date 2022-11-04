@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/utils/card.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1667519246579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1667519246579,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\nimport 'package:market_stock/utils/normal_text.dart';\n\nclass StatusCard extends StatelessWidget {\n  StatusCard(\n      {Key? key,\n      required this.text,\n      required this.boxColor,\n      required this.height,\n      this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 8),\n      required this.textColor,\n      required this.width,\n      this.fontWeight})\n      : super(key: key);\n  final String text;\n  final Color boxColor;\n  final double height;\n  final double width;\n  final Color textColor;\n  EdgeInsets? padding;\n  FontWeight? fontWeight;\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      height: height,\n      width: width,\n      decoration: BoxDecoration(\n          color: boxColor, borderRadius: BorderRadius.circular(50)),\n      child: Padding(\n        padding: const EdgeInsets.symmetric(\n          horizontal: 12,\n        ),\n        child: Center(\n          child: NormalText(\n            text: text,\n            color: textColor,\n            size: 13,\n            fontWeight: fontWeight,\n          ),\n        ),\n      ),\n    );\n  }\n}\n"
+        }
+    ]
+}

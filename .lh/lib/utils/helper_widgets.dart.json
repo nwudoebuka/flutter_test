@@ -1,0 +1,38 @@
+{
+    "sourceFile": "lib/utils/helper_widgets.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1667508948149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1667508998745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import 'package:flutter/material.dart';\n \n-Widget addVerticalSpace(double height) {\n+Widget vSpace(double height) {\n   return SizedBox(height: height);\n }\n \n-Widget addHorizontalSpace(double width) {\n+Widget hSpace(double width) {\n   return SizedBox(\n     width: width,\n   );\n }\n"
+                },
+                {
+                    "date": 1667509069001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,4 +8,9 @@\n   return SizedBox(\n     width: width,\n   );\n }\n+\n+extension VerticalHorizontalSpace on num {\n+  SizedBox get vs => SizedBox(height: toDouble());\n+  SizedBox get hs => SizedBox(width: toDouble());\n+}\n"
+                },
+                {
+                    "date": 1667509096348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n   );\n }\n \n extension VerticalHorizontalSpace on num {\n-  SizedBox get vs => SizedBox(height: toDouble());\n-  SizedBox get hs => SizedBox(width: toDouble());\n+  SizedBox get vSpace => SizedBox(height: toDouble());\n+  SizedBox get hSpace => SizedBox(width: toDouble());\n }\n"
+                },
+                {
+                    "date": 1667509489623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import 'dart:math';\n+\n import 'package:flutter/material.dart';\n \n Widget vSpace(double height) {\n   return SizedBox(height: height);\n@@ -13,4 +15,33 @@\n extension VerticalHorizontalSpace on num {\n   SizedBox get vSpace => SizedBox(height: toDouble());\n   SizedBox get hSpace => SizedBox(width: toDouble());\n }\n+\n+extension SizedContext on BuildContext {\n+  /// Returns same as MediaQuery.of(context)\n+  MediaQueryData get mq => MediaQuery.of(this);\n+\n+  /// Returns if Orientation is landscape\n+  bool get isLandscape => mq.orientation == Orientation.landscape;\n+\n+  /// Returns same as MediaQuery.of(context).size\n+  Size get sizePx => mq.size;\n+\n+  /// Returns same as MediaQuery.of(context).size.width\n+  double get widthPx => sizePx.width;\n+\n+  /// Returns same as MediaQuery.of(context).height\n+  double get heightPx => sizePx.height;\n+\n+  /// Returns diagonal screen pixels\n+  double get diagonalPx {\n+    final Size s = sizePx;\n+    return sqrt((s.width * s.width) + (s.height * s.height));\n+  }\n+\n+  /// Returns fraction (0-1) of screen width in pixels\n+  double widthPct(double fraction) => fraction * widthPx;\n+\n+  /// Returns fraction (0-1) of screen height in pixels\n+  double heightPct(double fraction) => fraction * heightPx;\n+}\n"
+                },
+                {
+                    "date": 1667509495159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,8 @@\n import 'dart:math';\n \n import 'package:flutter/material.dart';\n \n-Widget vSpace(double height) {\n-  return SizedBox(height: height);\n-}\n-\n-Widget hSpace(double width) {\n-  return SizedBox(\n-    width: width,\n-  );\n-}\n-\n extension VerticalHorizontalSpace on num {\n   SizedBox get vSpace => SizedBox(height: toDouble());\n   SizedBox get hSpace => SizedBox(width: toDouble());\n }\n"
+                }
+            ],
+            "date": 1667508948149,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\n\nWidget addVerticalSpace(double height) {\n  return SizedBox(height: height);\n}\n\nWidget addHorizontalSpace(double width) {\n  return SizedBox(\n    width: width,\n  );\n}\n"
+        }
+    ]
+}

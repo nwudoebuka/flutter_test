@@ -1,0 +1,18 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1667561489966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1667561489966,
+            "name": "Commit-0",
+            "content": "# market_stock\n\nA Stock Market Flutter project.\n\n## Getting Started\n\nThis project is a starting point of the proposed Stock Market application.\n\nThis project is basically to show the list 10 or more random companies and their stock\n\nThere is a date range to filter between days of their daily stock market\n\nThere is also a search box for filtering from the list of companies in order to check their daily stock\n\nThanks\n"
+        }
+    ]
+}
